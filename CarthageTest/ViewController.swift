@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import BraintreeDropIn
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    @IBAction func launchDropIn(_ sender: Any) {
+        let dropIn = BTDropInController(authorization: "sandbox_9dbg82cq_dcpspy2brwdjr3qn", request: BTDropInRequest()) { (controller, result, error) in
+
+            controller.dismiss(animated: true)
+        }
+
+        present(dropIn!, animated: true)
     }
-
-
 }
-
